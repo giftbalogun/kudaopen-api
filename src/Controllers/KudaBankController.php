@@ -22,8 +22,7 @@ class KudabankController extends Controller
     {
         $this->privateKey = __DIR__ . '/../xml/private.pem';
         $this->publicKey = __DIR__ . '/../xml/public.pem';
-        // /$this->clientKey = 'fbk2GVvFoCZe1xdLK740';
-        $this->clientKey = '17qg40rf29eNQp8RGDyY';
+        $this->clientKey = '';
         $this->crypter = new KudaEncryption();
         $this->baseUri = 'https://kuda-openapi.kuda.com/v1';
     }
