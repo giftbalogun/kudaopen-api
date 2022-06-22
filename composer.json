@@ -1,0 +1,32 @@
+{
+	"name": "giftbalogun/kudaencryption",
+	"description": "This is simple library to communicate with KudaOpenAPI",
+	"type": "library",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Gift Balogun",
+			"email": "blgnbalogun53@gmail.com",
+			"homepage": "https://giftbalogun.name.ng"
+		}
+	],
+	"minimum-stability": "stable",
+	"autoload": {
+		"psr-4": {
+			"Giftbalogun\\Kudaencryption\\": "src/"
+		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Giftbalogun\\Kudaencryption\\KudaEncryptionServiceProvider"
+			],
+			"aliases": {
+				"KudaEncyption": "Giftbalogun\\Kudaencryption\\Facades\\KudaEncryption"
+			}
+		}
+	},
+	"require": {
+		"phpseclib/phpseclib": "^2.0"
+	}
+}
