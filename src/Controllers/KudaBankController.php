@@ -22,8 +22,10 @@ class KudabankController extends Controller
     {
         $this->privateKey = __DIR__ . '/../xml/private.pem';
         $this->publicKey = __DIR__ . '/../xml/public.pem';
-        $this->clientKey = '';
+        $this->clientKey = 'fbk2GVvFoCZe1xdLK740';
+        //$this->clientKey = '17qg40rf29eNQp8RGDyY';
         $this->crypter = new KudaEncryption();
+        //$this->baseUri = 'https://kuda-openapi-uat.kudabank.com/v1';
         $this->baseUri = 'https://kuda-openapi.kuda.com/v1';
     }
 
@@ -91,6 +93,18 @@ class KudabankController extends Controller
         $result = $this->makeRequest($servicetype, $data, $requestRef);
 
         return $result;
+    }
+
+    public function webhook(Request $request)
+    {
+        // Retrieve the request's body
+        $input = @file_get_contents('php://input');
+
+        $event = json_decode($input);
+
+        echo response()->json([$event], 200);
+
+        http_response_code(200);
     }
 
     public function kudaAccountTransfer($payload, $requestRef = null)
